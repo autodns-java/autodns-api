@@ -18,6 +18,10 @@ public class CountryCodeAdapter extends XmlAdapter<String, CountryCode> {
 
 	@Override
 	public String marshal(CountryCode country) throws Exception {
+		if (country == null) {
+			return CountryCode.UNDEFINED.getAlpha2();
+		}
+
 		return country.getAlpha2();
 	}
 }
