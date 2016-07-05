@@ -78,8 +78,11 @@ public class Handle {
 		this.title = title;
 	}
 
-	@XmlElement(name = "organization", required = true, nillable = true)
+	@XmlElement(name = "organization", required = true)
 	public String getOrganisation() {
+		if (organisation == null) {
+			return "";
+		}
 		return organisation;
 	}
 
