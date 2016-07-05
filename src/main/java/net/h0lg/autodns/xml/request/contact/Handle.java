@@ -223,4 +223,97 @@ public class Handle {
 	public void setExtension(HandleExtension extension) {
 		this.extension = extension;
 	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+
+		Handle handle = (Handle) o;
+
+		if (getId() != null ? !getId().equals(handle.getId()) : handle.getId() != null) return false;
+		if (getType() != handle.getType()) return false;
+		if (getFirstName() != null ? !getFirstName().equals(handle.getFirstName()) : handle.getFirstName() != null)
+			return false;
+		if (getLastName() != null ? !getLastName().equals(handle.getLastName()) : handle.getLastName() != null)
+			return false;
+		if (getTitle() != null ? !getTitle().equals(handle.getTitle()) : handle.getTitle() != null) return false;
+		if (getOrganisation() != null ? !getOrganisation().equals(handle.getOrganisation()) : handle.getOrganisation() != null)
+			return false;
+		if (getAddresses() != null ? !getAddresses().equals(handle.getAddresses()) : handle.getAddresses() != null)
+			return false;
+		if (getPostcode() != null ? !getPostcode().equals(handle.getPostcode()) : handle.getPostcode() != null)
+			return false;
+		if (getCity() != null ? !getCity().equals(handle.getCity()) : handle.getCity() != null) return false;
+		if (getState() != null ? !getState().equals(handle.getState()) : handle.getState() != null) return false;
+		if (getCountry() != handle.getCountry()) return false;
+		if (getPhone() != null ? !getPhone().equals(handle.getPhone()) : handle.getPhone() != null) return false;
+		if (getFax() != null ? !getFax().equals(handle.getFax()) : handle.getFax() != null) return false;
+		if (getEmail() != null ? !getEmail().equals(handle.getEmail()) : handle.getEmail() != null) return false;
+		if (getProtection() != handle.getProtection()) return false;
+		if (getNicReferences() != null ? !getNicReferences().equals(handle.getNicReferences()) : handle.getNicReferences() != null)
+			return false;
+		if (getRemarks() != null ? !getRemarks().equals(handle.getRemarks()) : handle.getRemarks() != null)
+			return false;
+		if (getReplyTo() != null ? !getReplyTo().equals(handle.getReplyTo()) : handle.getReplyTo() != null)
+			return false;
+		if (getForceHandleCreate() != handle.getForceHandleCreate()) return false;
+		if (getComment() != null ? !getComment().equals(handle.getComment()) : handle.getComment() != null)
+			return false;
+		return getExtension() != null ? getExtension().equals(handle.getExtension()) : handle.getExtension() == null;
+
+	}
+
+	@Override
+	public int hashCode() {
+		int result = getId() != null ? getId().hashCode() : 0;
+		result = 31 * result + (getType() != null ? getType().hashCode() : 0);
+		result = 31 * result + (getFirstName() != null ? getFirstName().hashCode() : 0);
+		result = 31 * result + (getLastName() != null ? getLastName().hashCode() : 0);
+		result = 31 * result + (getTitle() != null ? getTitle().hashCode() : 0);
+		result = 31 * result + (getOrganisation() != null ? getOrganisation().hashCode() : 0);
+		result = 31 * result + (getAddresses() != null ? getAddresses().hashCode() : 0);
+		result = 31 * result + (getPostcode() != null ? getPostcode().hashCode() : 0);
+		result = 31 * result + (getCity() != null ? getCity().hashCode() : 0);
+		result = 31 * result + (getState() != null ? getState().hashCode() : 0);
+		result = 31 * result + (getCountry() != null ? getCountry().hashCode() : 0);
+		result = 31 * result + (getPhone() != null ? getPhone().hashCode() : 0);
+		result = 31 * result + (getFax() != null ? getFax().hashCode() : 0);
+		result = 31 * result + (getEmail() != null ? getEmail().hashCode() : 0);
+		result = 31 * result + (getProtection() != null ? getProtection().hashCode() : 0);
+		result = 31 * result + (getNicReferences() != null ? getNicReferences().hashCode() : 0);
+		result = 31 * result + (getRemarks() != null ? getRemarks().hashCode() : 0);
+		result = 31 * result + (getReplyTo() != null ? getReplyTo().hashCode() : 0);
+		result = 31 * result + (getForceHandleCreate() != null ? getForceHandleCreate().hashCode() : 0);
+		result = 31 * result + (getComment() != null ? getComment().hashCode() : 0);
+		result = 31 * result + (getExtension() != null ? getExtension().hashCode() : 0);
+		return result;
+	}
+
+	@Override
+	public String toString() {
+		return "Handle{" +
+				"id='" + id + '\'' +
+				", type=" + type +
+				", firstName='" + firstName + '\'' +
+				", lastName='" + lastName + '\'' +
+				", title='" + title + '\'' +
+				", organisation='" + organisation + '\'' +
+				", addresses=" + addresses +
+				", postcode='" + postcode + '\'' +
+				", city='" + city + '\'' +
+				", state='" + state + '\'' +
+				", country=" + country +
+				", phone='" + phone + '\'' +
+				", fax='" + fax + '\'' +
+				", email='" + email + '\'' +
+				", protection=" + protection +
+				", nicReferences=" + nicReferences +
+				", remarks='" + remarks + '\'' +
+				", replyTo='" + replyTo + '\'' +
+				", forceHandleCreate=" + forceHandleCreate +
+				", comment='" + comment + '\'' +
+				", extension=" + extension +
+				'}';
+	}
 }
