@@ -20,7 +20,7 @@ public class HandleRequestCreationTest {
 		Request request = new Request();
 
 		Auth auth = new Auth();
-		auth.setUser("2016_06_24_steinhauer_th");
+		auth.setUser("user");
 		auth.setPassword("domain");
 		auth.setContext("1");
 		request.setAuth(auth);
