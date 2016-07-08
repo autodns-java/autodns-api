@@ -14,16 +14,6 @@ public enum RequestCode {
 		return this.value;
 	}
 
-	public static RequestCode findByValue(String value) {
-		for (RequestCode code : values()) {
-			if (code.getValue().equals(value)) {
-				return code;
-			}
-		}
-
-		return null;
-	}
-
 	@Override
 	public String toString() {
 		return value;

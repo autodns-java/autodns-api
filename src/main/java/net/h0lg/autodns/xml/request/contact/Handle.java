@@ -3,7 +3,7 @@ package net.h0lg.autodns.xml.request.contact;
 
 import com.neovisionaries.i18n.CountryCode;
 import net.h0lg.autodns.xml.adapter.CountryCodeAdapter;
-import net.h0lg.autodns.xml.adapter.ProtectionAdapter;
+import net.h0lg.autodns.xml.adapter.HandleProtectionAdapter;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
@@ -160,7 +160,7 @@ public class Handle {
 		this.email = email;
 	}
 
-	@XmlJavaTypeAdapter(ProtectionAdapter.class)
+	@XmlJavaTypeAdapter(HandleProtectionAdapter.class)
 	public HandleProtection getProtection() {
 		return protection;
 	}
