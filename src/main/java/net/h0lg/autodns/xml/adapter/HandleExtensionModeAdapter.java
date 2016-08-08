@@ -1,6 +1,6 @@
 package net.h0lg.autodns.xml.adapter;
 
-import net.h0lg.autodns.xml.request.contact.HandleExtensionMode;
+import net.h0lg.autodns.xml.request.model.contact.HandleExtensionMode;
 
 import javax.xml.bind.annotation.adapters.XmlAdapter;
 import java.util.Arrays;

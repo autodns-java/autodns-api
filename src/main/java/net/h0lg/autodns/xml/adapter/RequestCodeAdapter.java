@@ -1,6 +1,6 @@
 package net.h0lg.autodns.xml.adapter;
 
-import net.h0lg.autodns.xml.request.RequestCode;
+import net.h0lg.autodns.xml.request.model.RequestCode;
 
 import javax.xml.bind.annotation.adapters.XmlAdapter;
 import java.util.Arrays;

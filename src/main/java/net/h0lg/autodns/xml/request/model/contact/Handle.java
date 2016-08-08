@@ -1,4 +1,4 @@
-package net.h0lg.autodns.xml.request.contact;
+package net.h0lg.autodns.xml.request.model.contact;
 
 
 import com.neovisionaries.i18n.CountryCode;

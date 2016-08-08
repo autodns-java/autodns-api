@@ -1,11 +1,11 @@
 package demo;
 
 import com.neovisionaries.i18n.CountryCode;
-import net.h0lg.autodns.xml.request.Auth;
-import net.h0lg.autodns.xml.request.Request;
-import net.h0lg.autodns.xml.request.RequestCode;
-import net.h0lg.autodns.xml.request.Task;
-import net.h0lg.autodns.xml.request.contact.*;
+import net.h0lg.autodns.xml.request.model.Auth;
+import net.h0lg.autodns.xml.request.model.Request;
+import net.h0lg.autodns.xml.request.model.RequestCode;
+import net.h0lg.autodns.xml.request.model.Task;
+import net.h0lg.autodns.xml.request.model.contact.*;
 import org.junit.Test;
 
 import javax.xml.bind.JAXBContext;

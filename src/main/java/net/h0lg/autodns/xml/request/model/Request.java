@@ -1,4 +1,4 @@
-package net.h0lg.autodns.xml.request;
+package net.h0lg.autodns.xml.request.model;
 
 import javax.xml.bind.annotation.XmlRootElement;
 

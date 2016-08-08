@@ -1,6 +1,6 @@
 package net.h0lg.autodns.xml.adapter;
 
-import net.h0lg.autodns.xml.request.contact.HandleGender;
+import net.h0lg.autodns.xml.request.model.contact.HandleGender;
 import org.junit.Test;
 
 import static org.hamcrest.core.Is.is;

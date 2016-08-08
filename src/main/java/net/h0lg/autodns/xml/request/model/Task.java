@@ -1,7 +1,7 @@
-package net.h0lg.autodns.xml.request;
+package net.h0lg.autodns.xml.request.model;
 
 import net.h0lg.autodns.xml.adapter.RequestCodeAdapter;
-import net.h0lg.autodns.xml.request.contact.Handle;
+import net.h0lg.autodns.xml.request.model.contact.Handle;
 
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
