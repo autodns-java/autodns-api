@@ -12,7 +12,7 @@ public class Request {
 		return auth;
 	}
 
-	public void setAuth(Auth auth) {
+	public void setAuth(final Auth auth) {
 		this.auth = auth;
 	}
 
@@ -20,7 +20,7 @@ public class Request {
 		return task;
 	}
 
-	public void setTask(Task task) {
+	public void setTask(final Task task) {
 		this.task = task;
 	}
 

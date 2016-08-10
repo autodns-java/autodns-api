@@ -8,7 +8,12 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 public class Task {
 
 	private Handle handle;
-	private RequestCode code;
+	private final RequestCode code;
+	private View view;
+
+	public Task (RequestCode code) {
+		this.code = code;
+	}
 
 	public Handle getHandle() {
 		return handle;
@@ -23,8 +28,12 @@ public class Task {
 		return code;
 	}
 
-	public void setCode(RequestCode code) {
-		this.code = code;
+	public View getView() {
+		return view;
+	}
+
+	public void setView(View view) {
+		this.view = view;
 	}
 
 	@Override

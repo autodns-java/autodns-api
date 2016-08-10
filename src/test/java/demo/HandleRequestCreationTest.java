@@ -1,6 +1,7 @@
 package demo;
 
 import com.neovisionaries.i18n.CountryCode;
+import net.h0lg.autodns.xml.builder.HandleListRequestBuilder;
 import net.h0lg.autodns.xml.request.model.Auth;
 import net.h0lg.autodns.xml.request.model.Request;
 import net.h0lg.autodns.xml.request.model.RequestCode;
@@ -14,19 +15,19 @@ import javax.xml.bind.Marshaller;
 
 public class HandleRequestCreationTest {
 
+	private static final String USERNAME = "user";
+	private static final String PASSWORD = "domain";
+	private static final String CONTEXT = "1";
+
 	@Test
 	public void checkHandleRequestCXml() throws JAXBException {
 
 		Request request = new Request();
 
-		Auth auth = new Auth();
-		auth.setUser("user");
-		auth.setPassword("domain");
-		auth.setContext("1");
+		Auth auth = new Auth(USERNAME, PASSWORD, CONTEXT);
 		request.setAuth(auth);
 
-		Task task = new Task();
-		task.setCode(RequestCode.CONTACT_CREATE);
+		Task task = new Task(RequestCode.CONTACT_CREATE);
 		request.setTask(task);
 
 		Handle handle = new Handle();
@@ -60,6 +61,19 @@ public class HandleRequestCreationTest {
 		marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
 		marshaller.marshal(request, System.out);
+	}
+
+	@Test
+	public void testContactListEntquireyXml() throws JAXBException {
+		HandleListRequestBuilder builder = new HandleListRequestBuilder(
+				new Auth(USERNAME, PASSWORD, CONTEXT)
+		);
+
+		JAXBContext context = JAXBContext.newInstance(Request.class);
+		Marshaller marshaller = context.createMarshaller();
+		marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);;
+
+		marshaller.marshal(builder.build(), System.out);
 	}
 
 }

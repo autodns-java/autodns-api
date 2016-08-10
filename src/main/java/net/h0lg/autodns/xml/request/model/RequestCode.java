@@ -2,7 +2,7 @@ package net.h0lg.autodns.xml.request.model;
 
 public enum RequestCode {
 
-	CONTACT_CREATE("0301");
+	CONTACT_CREATE("0301"), CONTACT_LIST("0304");
 
 	private final String value;
 
