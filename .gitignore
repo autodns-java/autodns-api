@@ -151,3 +151,6 @@ gradle-app.setting
 
 ## Manual ##
 .idea
+
+## AUTODNS PROJECT EXCLUDES ##
+**/resources/autodns.properties
