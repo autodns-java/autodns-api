@@ -6,5 +6,14 @@ import java.util.List;
 @XmlRootElement(name = "response")
 public class Response {
 
-	List<Result> results;
+
+	List<Result> result;
+
+	public List<Result> getResult() {
+		return result;
+	}
+
+	public void setResult(List<Result> results) {
+		this.result= results;
+	}
 }

@@ -4,6 +4,7 @@ package net.h0lg.autodns.xml.request.model.contact;
 import com.neovisionaries.i18n.CountryCode;
 import net.h0lg.autodns.xml.adapter.CountryCodeAdapter;
 import net.h0lg.autodns.xml.adapter.HandleProtectionAdapter;
+import net.h0lg.autodns.xml.request.model.Owner;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
@@ -13,6 +14,7 @@ import java.util.List;
 public class Handle {
 
 	private String id;
+	private String alias;
 	private HandleType type;
 	private String firstName;
 	private String lastName;
@@ -32,6 +34,7 @@ public class Handle {
 	private String replyTo;
 	private HandleForceCreate forceHandleCreate;
 	private String comment;
+	private Owner owner;
 
 	private HandleExtension extension;
 
@@ -42,6 +45,14 @@ public class Handle {
 
 	public void setId(String id) {
 		this.id = id;
+	}
+
+	public String getAlias() {
+		return alias;
+	}
+
+	public void setAlias(String alias) {
+		this.alias = alias;
 	}
 
 	public HandleType getType() {
@@ -216,6 +227,14 @@ public class Handle {
 		this.comment = comment;
 	}
 
+	public Owner getOwner() {
+		return owner;
+	}
+
+	public void setOwner(Owner owner) {
+		this.owner = owner;
+	}
+
 	public HandleExtension getExtension() {
 		return extension;
 	}
@@ -232,6 +251,7 @@ public class Handle {
 		Handle handle = (Handle) o;
 
 		if (getId() != null ? !getId().equals(handle.getId()) : handle.getId() != null) return false;
+		if (getAlias() != null ? !getAlias().equals(handle.getAlias()) : handle.getAlias() != null) return false;
 		if (getType() != handle.getType()) return false;
 		if (getFirstName() != null ? !getFirstName().equals(handle.getFirstName()) : handle.getFirstName() != null)
 			return false;
@@ -260,6 +280,7 @@ public class Handle {
 		if (getForceHandleCreate() != handle.getForceHandleCreate()) return false;
 		if (getComment() != null ? !getComment().equals(handle.getComment()) : handle.getComment() != null)
 			return false;
+		if (getOwner() != null ? !getOwner().equals(handle.getOwner()) : handle.getOwner() != null) return false;
 		return getExtension() != null ? getExtension().equals(handle.getExtension()) : handle.getExtension() == null;
 
 	}
@@ -267,6 +288,7 @@ public class Handle {
 	@Override
 	public int hashCode() {
 		int result = getId() != null ? getId().hashCode() : 0;
+		result = 31 * result + (getAlias() != null ? getAlias().hashCode() : 0);
 		result = 31 * result + (getType() != null ? getType().hashCode() : 0);
 		result = 31 * result + (getFirstName() != null ? getFirstName().hashCode() : 0);
 		result = 31 * result + (getLastName() != null ? getLastName().hashCode() : 0);
@@ -286,6 +308,7 @@ public class Handle {
 		result = 31 * result + (getReplyTo() != null ? getReplyTo().hashCode() : 0);
 		result = 31 * result + (getForceHandleCreate() != null ? getForceHandleCreate().hashCode() : 0);
 		result = 31 * result + (getComment() != null ? getComment().hashCode() : 0);
+		result = 31 * result + (getOwner() != null ? getOwner().hashCode() : 0);
 		result = 31 * result + (getExtension() != null ? getExtension().hashCode() : 0);
 		return result;
 	}
@@ -294,6 +317,7 @@ public class Handle {
 	public String toString() {
 		return "Handle{" +
 				"id='" + id + '\'' +
+				", alias='" + alias + '\'' +
 				", type=" + type +
 				", firstName='" + firstName + '\'' +
 				", lastName='" + lastName + '\'' +
@@ -313,6 +337,7 @@ public class Handle {
 				", replyTo='" + replyTo + '\'' +
 				", forceHandleCreate=" + forceHandleCreate +
 				", comment='" + comment + '\'' +
+				", owner=" + owner +
 				", extension=" + extension +
 				'}';
 	}

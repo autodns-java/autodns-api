@@ -26,18 +26,24 @@ public class HandleResource extends AbstractResource {
 
 		String requestXml = marshal(request);
 
+		// FIXME use logging, stupid
+		System.err.println(requestXml);
+
+		// TODO should be handled elsewhere...
 		OkHttpClient httpClient = new OkHttpClient();
 		RequestBody requestBody = RequestBody.create(MediaType.parse("text/xml"), requestXml);
 
 		okhttp3.Request httpRequest = new okhttp3.Request.Builder()
-				.url("http://demo.autodns.com/gateway/")
+				.url("https://demo.autodns.com/gateway/")
 				.post(requestBody)
 				.build();
 
 		Response response = httpClient.newCall(httpRequest).execute();
 
+		String responseBody = response.body().string();
+		net.h0lg.autodns.xml.response.model.Response autoDnsResponse = unmarshal(responseBody);
 
-		return null;
+		return autoDnsResponse.getResult().get(0).getDataList().get(0).getHandles();
 	}
 
 

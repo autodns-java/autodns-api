@@ -34,12 +34,14 @@ public class OkHttpTests {
 		JAXBContext context = JAXBContext.newInstance(Request.class);
 		Marshaller marshaller = context.createMarshaller();
 		marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-		;
+
 		marshaller.marshal(listBuilder.build(), messageBody);
 
 		OkHttpClient client = new OkHttpClient();
 
 		RequestBody body = RequestBody.create(MediaType.parse("text/xml"), messageBody.toString());
+
+		System.err.println("Request: [" + messageBody.toString() + "]");
 
 		okhttp3.Request httpRequest = new okhttp3.Request.Builder()
 				.url(AUTODNS_DEMO_HOST)
