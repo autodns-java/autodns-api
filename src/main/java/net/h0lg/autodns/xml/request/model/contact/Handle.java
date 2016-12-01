@@ -38,6 +38,30 @@ public class Handle {
 
 	private HandleExtension extension;
 
+	public Handle(String id, String alias, HandleType type, String firstName, String lastName, String title, String organisation, List<String> addresses, String postcode, String city, String state, CountryCode country, String phone, String fax, String email, HandleProtection protection, List<CountryCode> nicReferences, String remarks, String replyTo, HandleForceCreate forceHandleCreate, String comment, Owner owner) {
+		this.id = id;
+		this.alias = alias;
+		this.type = type;
+		this.firstName =  firstName;
+		this.lastName = lastName;
+		this.title = title;
+		this.organisation = organisation;
+		this.addresses = addresses;
+		this.postcode = postcode;
+		this.city = city;
+		this.state = state;
+		this.country = country;
+		this.phone = phone;
+		this.fax = fax;
+		this.email = email;
+		this.protection = protection;
+		this.nicReferences = nicReferences;
+		this.remarks = remarks;
+		this.replyTo = replyTo;
+		this.forceHandleCreate = forceHandleCreate;
+		this.comment = comment;
+		this.owner = owner;
+	}
 
 	public String getId() {
 		return id;
@@ -341,4 +365,5 @@ public class Handle {
 				", extension=" + extension +
 				'}';
 	}
+
 }

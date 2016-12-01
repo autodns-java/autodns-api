@@ -12,6 +12,8 @@ import org.junit.Test;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
+import java.util.Arrays;
+import java.util.List;
 
 public class HandleRequestCreationTest {
 
@@ -20,7 +22,7 @@ public class HandleRequestCreationTest {
 	private static final String CONTEXT = "1";
 
 	@Test
-	public void checkHandleRequestCXml() throws JAXBException {
+	public void checkHandleRequestXml() throws JAXBException {
 
 		Request request = new Request();
 
@@ -30,23 +32,29 @@ public class HandleRequestCreationTest {
 		Task task = new Task(RequestCode.CONTACT_CREATE);
 		request.setTask(task);
 
-		Handle handle = new Handle();
-		handle.setType(HandleType.PERSON);
-		handle.setFirstName("Testus");
-		handle.setLastName("McTestFace");
-		handle.setOrganisation(null);
-		handle.getAddresses().add("Address line 1");
-		handle.getAddresses().add("Address line 2");
-		handle.getAddresses().add("Address line 3");
-		handle.setCity("Testland");
-		handle.setPostcode("123456");
-		handle.setCountry(CountryCode.DE);
-		handle.setPhone("+44-1234-5678901");
-		handle.setFax("+44-1234-5678901");
-		handle.setEmail("me@you.local");
-		handle.setProtection(HandleProtection.LIMITED);
-		handle.getNicReferences().add(CountryCode.DE);
-		handle.setReplyTo("me@you.local");
+		List<String> threeLineAddress = Arrays.asList("Address line 1", "Address line 2", "Address line 3");
+
+		Handle handle = new Handle(null,
+				null,
+				HandleType.PERSON,
+				"Testus",
+				"McTestFace",
+				null,
+				null,
+				threeLineAddress,
+				"123456",
+				"Testland",
+				null, CountryCode.DE,
+				"+44-1234-5678901",
+				"+44-1234-5678901",
+				"me@you.local",
+				HandleProtection.LIMITED,
+				null,
+				null,
+				"me@there.local",
+				null,
+				null,
+				null);
 
 		HandleExtension extension = new HandleExtension();
 		extension.setExtensionMode(HandleExtensionMode.REPLACE);
@@ -71,7 +79,8 @@ public class HandleRequestCreationTest {
 
 		JAXBContext context = JAXBContext.newInstance(Request.class);
 		Marshaller marshaller = context.createMarshaller();
-		marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);;
+		marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+		;
 
 		marshaller.marshal(builder.build(), System.out);
 	}
