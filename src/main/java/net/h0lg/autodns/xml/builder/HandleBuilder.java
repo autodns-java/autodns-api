@@ -34,18 +34,31 @@ public class HandleBuilder {
     private HandleExtension extension;
 
     public Handle build() {
-    	Handle handle = new Handle(id, alias, type, firstName, lastName, title, organisation, addresses, postcode, city, state, country, phone, fax, email, protection, nicReferences, remarks, replyTo, forceHandleCreate, comment, owner);
+    	Handle handle = new Handle(id,
+				alias,
+				type,
+				firstName,
+				lastName,
+				title,
+				organisation,
+				addresses,
+				postcode,
+				city,
+				state,
+				country,
+				phone,
+				fax,
+				email,
+				protection,
+				nicReferences,
+				remarks,
+				replyTo,
+				forceHandleCreate,
+				comment,
+				owner);
 
         return handle;
     }
-
-    private HandleBuilder() {
-    }
-
-
-    public static HandleBuilder getCreateHandleBuilder() {
-    	return new HandleBuilder();
-	}
 
 	public String getId() {
 		return id;
