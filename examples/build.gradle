@@ -33,3 +33,7 @@ mainClassName = 'software.steinhauer.autodns.examples.Demo'
 repositories {
 	mavenCentral()
 }
+
+dependencies {
+	compile project(':library')
+}
