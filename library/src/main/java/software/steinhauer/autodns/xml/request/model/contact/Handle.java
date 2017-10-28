@@ -84,4 +84,5 @@ public class Handle {
 	private HandleExtension extension;
 	@XmlJavaTypeAdapter(HandleVerificationAdapter.class)
 	private HandleVerification verification;
+	private Owner updater;
 }
