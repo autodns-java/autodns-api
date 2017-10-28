@@ -45,13 +45,14 @@ dependencies {
 			'com.neovisionaries:nv-i18n:1.22',
 			'com.squareup.okhttp3:okhttp:3.9.0',
 			'org.projectlombok:lombok:1.16.18',
-			'javax.xml.bind:jaxb-api-parent:2.3.0'
-
+			'javax.xml.bind:jaxb-api-parent:2.3.0',
+			'org.slf4j:slf4j-api:1.7.25'
 	)
 
 	testCompile(
 			'junit:junit:4.12',
-			'org.hamcrest:java-hamcrest:2.0.0.0'
+			'org.hamcrest:java-hamcrest:2.0.0.0',
+			'ch.qos.logback:logback-classic:1.2.3'
 	)
 }
 

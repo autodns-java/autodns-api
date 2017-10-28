@@ -24,6 +24,7 @@
 
 package net.h0lg.autodns.resources;
 
+import lombok.extern.slf4j.Slf4j;
 import net.h0lg.autodns.AutoDnsClient;
 import net.h0lg.autodns.xml.builder.HandleListRequestBuilder;
 import net.h0lg.autodns.xml.request.model.Request;
@@ -38,6 +39,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
+@Slf4j
 public class HandleResource extends AbstractResource {
 
 	private final AutoDnsClient client;
@@ -55,6 +57,7 @@ public class HandleResource extends AbstractResource {
 		String requestXml = marshal(request);
 
 		// FIXME use logging, stupid
+		LOG.trace(requestXml);
 		System.err.println(requestXml);
 
 		// TODO should be handled elsewhere...
