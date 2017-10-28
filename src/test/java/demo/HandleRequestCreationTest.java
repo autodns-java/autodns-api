@@ -34,27 +34,20 @@ public class HandleRequestCreationTest {
 
 		List<String> threeLineAddress = Arrays.asList("Address line 1", "Address line 2", "Address line 3");
 
-		Handle handle = new Handle(null,
-				null,
-				HandleType.PERSON,
-				"Testus",
-				"McTestFace",
-				null,
-				null,
-				threeLineAddress,
-				"123456",
-				"Testland",
-				null, CountryCode.DE,
-				"+44-1234-5678901",
-				"+44-1234-5678901",
-				"me@you.local",
-				HandleProtection.LIMITED,
-				null,
-				null,
-				"me@there.local",
-				null,
-				null,
-				null);
+		Handle handle = Handle.builder()
+				.type(HandleType.PERSON)
+				.firstName("Testus")
+				.lastName("McTestFace")
+				.addresses(threeLineAddress)
+				.postcode("123456")
+				.city("Testland")
+				.country(CountryCode.DE)
+				.phone("+44-1234-5678901")
+				.fax("+44-1234-5678901")
+				.email("me@you.local")
+				.protection(HandleProtection.LIMITED)
+				.replyTo("me@there.local")
+				.build();
 
 		HandleExtension extension = new HandleExtension();
 		extension.setExtensionMode(HandleExtensionMode.REPLACE);
@@ -72,7 +65,7 @@ public class HandleRequestCreationTest {
 	}
 
 	@Test
-	public void testContactListEntquireyXml() throws JAXBException {
+	public void testContactListEnquiryXml() throws JAXBException {
 		HandleListRequestBuilder builder = new HandleListRequestBuilder(
 				new Auth(USERNAME, PASSWORD, CONTEXT)
 		);
@@ -80,7 +73,6 @@ public class HandleRequestCreationTest {
 		JAXBContext context = JAXBContext.newInstance(Request.class);
 		Marshaller marshaller = context.createMarshaller();
 		marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-		;
 
 		marshaller.marshal(builder.build(), System.out);
 	}

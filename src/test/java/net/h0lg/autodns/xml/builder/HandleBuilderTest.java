@@ -11,7 +11,7 @@ import org.junit.Test;
 import java.util.Collections;
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 public class HandleBuilderTest {
@@ -35,99 +35,88 @@ public class HandleBuilderTest {
 	private final Owner owner = new Owner();
 
 	@Test
-    public void should_returnHandle_given_minimalData() {
-        HandleBuilder builder = new HandleBuilder();
-
+	public void should_returnHandle_given_minimalData() {
 		Handle actualHandle = createBasicHandleBuilder().build();
 
-		Handle expectedHandle = new Handle(null,
-				null,
-				HandleType.PERSON,
-				firstName,
-				lastName,
-				null,
-				organisation,
-				oneLineStreet(),
-				postcode,
-				city,
-				null,
-				CountryCode.UK,
-				null,
-				null,
-				null,
-				HandleProtection.LIMITED,
-				null,
-				null,
-				replyTo,
-				null,
-				null,
-				null);
+		Handle expectedHandle = Handle.builder()
+				.type(HandleType.PERSON)
+				.firstName(firstName)
+				.lastName(lastName)
+				.organisation(organisation)
+				.addresses(oneLineStreet())
+				.postcode(postcode)
+				.city(city)
+				.country(CountryCode.UK)
+				.protection(HandleProtection.LIMITED)
+				.replyTo(replyTo)
+				.build();
 
 		assertThat(actualHandle, is(expectedHandle));
-
 	}
 
 	@Test
 	public void should_returnHandle_givenAllDetails() {
-		HandleBuilder builder = createBasicHandleBuilder();
+		Handle.HandleBuilder builder = createBasicHandleBuilder();
 
-		builder.setId(id)
-				.setAlias(alias)
-				.setType(HandleType.ORG)
-				.setTitle(title)
-				.setState(state)
-				.setCountry(CountryCode.DE)
-				.setPhone(phone)
-				.setFax(fax)
-				.setEmail(email)
-				.setProtection(HandleProtection.ALL)
-				.setNicReferences(nicReference)
-				.setRemarks(remarks)
-				.setForceHandleCreate(HandleForceCreate.FORCE)
-				.setComment(comment)
-				.setOwner(owner);
+		builder
+				.id(id)
+				.alias(alias)
+				.type(HandleType.ORG)
+				.title(title)
+				.state(state)
+				.country(CountryCode.DE)
+				.phone(phone)
+				.fax(fax)
+				.email(email)
+				.protection(HandleProtection.ALL)
+				.nicReferences(nicReference)
+				.remarks(remarks)
+				.forceHandleCreate(HandleForceCreate.FORCE)
+				.comment(comment)
+				.owner(owner);
 
 
-		Handle expectedHandle = new Handle(id,
-				alias,
-				HandleType.ORG,
-				firstName,
-				lastName,
-				title,
-				organisation,
-				oneLineStreet(),
-				postcode,
-				city,
-				state,
-				CountryCode.DE,
-				phone,
-				fax,
-				email,
-				HandleProtection.ALL,
-				nicReference,
-				remarks,
-				replyTo,
-				HandleForceCreate.FORCE,
-				comment,
-				owner);
+		Handle expectedHandle = Handle.builder()
+				.id(id)
+				.alias(alias)
+				.type(HandleType.ORG)
+				.firstName(firstName)
+				.lastName(lastName)
+				.title(title)
+				.organisation(organisation)
+				.addresses(oneLineStreet())
+				.postcode(postcode)
+				.city(city)
+				.state(state)
+				.country(CountryCode.DE)
+				.phone(phone)
+				.fax(fax)
+				.email(email)
+				.protection(HandleProtection.ALL)
+				.nicReferences(nicReference)
+				.remarks(remarks)
+				.replyTo(replyTo)
+				.forceHandleCreate(HandleForceCreate.FORCE)
+				.comment(comment)
+				.owner(owner)
+				.build();
 
 		assertThat(builder.build(), is(expectedHandle));
 
 	}
 
-	private HandleBuilder createBasicHandleBuilder() {
-		HandleBuilder builder = new HandleBuilder();
-
-		return builder.setType(HandleType.PERSON)
-				.setFirstName(firstName)
-				.setLastName(lastName)
-				.setOrganisation(organisation)
-				.setAddresses(oneLineStreet())
-				.setPostcode(postcode)
-				.setCity(city)
-				.setCountry(CountryCode.UK)
-				.setProtection(HandleProtection.LIMITED)
-				.setReplyTo(replyTo);
+	private Handle.HandleBuilder createBasicHandleBuilder() {
+		return Handle.builder()
+				.type(HandleType.PERSON)
+				.firstName(firstName)
+				.lastName(lastName)
+				.organisation(organisation)
+				.addresses(oneLineStreet())
+				.postcode(postcode)
+				.city(city)
+				.country(CountryCode.UK)
+				.protection(HandleProtection.LIMITED)
+				.replyTo(replyTo);
 	}
 
 	private List<String> oneLineStreet() {
