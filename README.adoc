@@ -1,0 +1,4 @@
+= The AutoDNS XML API library for Java
+
+This project is about providing a Java library for https://login.autodns.com[AutoDNS], the domain administration system
+from https://www.internetx.com[InternetX].
