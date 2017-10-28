@@ -8,8 +8,7 @@ import javax.xml.bind.JAXBException;
 import java.io.IOException;
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.not;
+import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.empty;
 
@@ -24,6 +23,9 @@ public class HandleResourceTest {
 		List<Handle> handleList = resource.getHandleList();
 
 		assertThat(handleList, is(not(empty())));
+		assertThat(handleList.get(0).getEmail(), is(not(nullValue())));
+
+		handleList.forEach(System.out::println);
 	}
 
 }

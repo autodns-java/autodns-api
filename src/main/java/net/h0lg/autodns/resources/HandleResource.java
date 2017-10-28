@@ -11,6 +11,7 @@ import okhttp3.Response;
 
 import javax.xml.bind.JAXBException;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 
 public class HandleResource extends AbstractResource {
@@ -23,6 +24,9 @@ public class HandleResource extends AbstractResource {
 
 	public List<Handle> getHandleList() throws IOException, JAXBException {
 		Request request = new HandleListRequestBuilder(client.getCredentials()).build();
+
+		// request email as additional attribute in result set
+		request.getTask().setKeys(Arrays.asList("email", "created", "verification", "sip", "updater"));
 
 		String requestXml = marshal(request);
 

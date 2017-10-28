@@ -8,8 +8,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import net.h0lg.autodns.xml.adapter.CountryCodeAdapter;
 import net.h0lg.autodns.xml.adapter.HandleProtectionAdapter;
+import net.h0lg.autodns.xml.adapter.HandleVerificationAdapter;
 import net.h0lg.autodns.xml.request.model.Owner;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.util.List;
@@ -18,6 +21,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Handle {
 
 	private String id;
@@ -54,4 +58,6 @@ public class Handle {
 	private String comment;
 	private Owner owner;
 	private HandleExtension extension;
+	@XmlJavaTypeAdapter(HandleVerificationAdapter.class)
+	private HandleVerification verification;
 }

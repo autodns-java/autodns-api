@@ -29,7 +29,9 @@ public class HandleRequestCreationTest {
 		Auth auth = new Auth(USERNAME, PASSWORD, CONTEXT);
 		request.setAuth(auth);
 
-		Task task = new Task(RequestCode.CONTACT_CREATE);
+		Task task = Task.builder()
+				.code(RequestCode.CONTACT_CREATE)
+				.build();
 		request.setTask(task);
 
 		List<String> threeLineAddress = Arrays.asList("Address line 1", "Address line 2", "Address line 3");
