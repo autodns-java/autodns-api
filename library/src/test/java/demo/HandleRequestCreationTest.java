@@ -25,13 +25,13 @@
 package demo;
 
 import com.neovisionaries.i18n.CountryCode;
-import net.h0lg.autodns.xml.builder.HandleListRequestBuilder;
-import net.h0lg.autodns.xml.request.model.Auth;
-import net.h0lg.autodns.xml.request.model.Request;
-import net.h0lg.autodns.xml.request.model.RequestCode;
-import net.h0lg.autodns.xml.request.model.Task;
-import net.h0lg.autodns.xml.request.model.contact.*;
 import org.junit.Test;
+import software.steinhauer.autodns.xml.builder.HandleListRequestBuilder;
+import software.steinhauer.autodns.xml.request.model.Auth;
+import software.steinhauer.autodns.xml.request.model.Request;
+import software.steinhauer.autodns.xml.request.model.RequestCode;
+import software.steinhauer.autodns.xml.request.model.Task;
+import software.steinhauer.autodns.xml.request.model.contact.*;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;

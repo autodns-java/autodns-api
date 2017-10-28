@@ -24,8 +24,8 @@
 
 package demo;
 
-import net.h0lg.autodns.xml.response.model.Response;
 import org.junit.Test;
+import software.steinhauer.autodns.xml.response.model.Response;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;

@@ -24,14 +24,14 @@
 
 package demo;
 
-import net.h0lg.autodns.xml.builder.HandleListRequestBuilder;
-import net.h0lg.autodns.xml.request.model.Auth;
-import net.h0lg.autodns.xml.request.model.Request;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 import org.junit.Test;
+import software.steinhauer.autodns.xml.builder.HandleListRequestBuilder;
+import software.steinhauer.autodns.xml.request.model.Auth;
+import software.steinhauer.autodns.xml.request.model.Request;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
