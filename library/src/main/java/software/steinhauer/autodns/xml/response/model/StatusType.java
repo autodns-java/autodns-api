@@ -26,14 +26,16 @@ package software.steinhauer.autodns.xml.response.model;
 
 public enum StatusType {
 
-	SUCCESS("S"),
-	ERROR("E"),
-	NOTIFICATION("N");
+	SUCCESS("success", "S"),
+	ERROR("error", "E"),
+	NOTIFICATION("notify", "N");
 
-	private final String code;
+	private final String value;
+	private final String codePrefix;
 
-	StatusType(String code) {
-		this.code = code;
+	StatusType(String value, String codePrefix) {
+		this.value = value;
+		this.codePrefix = codePrefix;
 	}
 
 }

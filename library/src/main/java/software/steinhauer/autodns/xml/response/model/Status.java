@@ -38,5 +38,6 @@ public class Status {
 	StatusType type;
 	String code;
 	String text;
+	ResponseObject object;
 
 }

@@ -22,38 +22,43 @@
  * SOFTWARE.
  */
 
-package software.steinhauer.autodns.xml.request.model;
+package software.steinhauer.autodns.examples.contacts;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import software.steinhauer.autodns.xml.adapter.RequestCodeAdapter;
+import com.neovisionaries.i18n.CountryCode;
+import software.steinhauer.autodns.AutoDnsClient;
+import software.steinhauer.autodns.resources.HandleResource;
 import software.steinhauer.autodns.xml.request.model.contact.Handle;
+import software.steinhauer.autodns.xml.request.model.contact.HandleProtection;
+import software.steinhauer.autodns.xml.request.model.contact.HandleType;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-import java.util.List;
+import java.util.Collections;
 
-@Builder
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@XmlAccessorType(XmlAccessType.FIELD)
-public class Task {
+public class CreateNewContactHandle {
 
-	private Handle handle;
-	@XmlJavaTypeAdapter(RequestCodeAdapter.class)
-	private RequestCode code;
-	private View view;
-	@XmlElement(name = "key")
-	private List<String> keys;
-	@XmlElement(name = "force_handle_create")
-	private int forceCreation;
+	public static void main(String... arg) throws Exception {
+		AutoDnsClient client = AutoDnsClient.instance();
 
-	@XmlElement(name = "ctid")
-	private String clientTransactionId;
+		Handle handle = Handle.builder()
+				.type(HandleType.PERSON)
+				.firstName("Big")
+				.lastName("Bird")
+				.organisation("Sesamestreet Inc")
+				.addresses(Collections.singletonList("Sesamestreet 1"))
+				.postcode("12345")
+				.city("SesameCity")
+				.country(CountryCode.US)
+				.phone("+1-12345-12345")
+				.fax("+1-12345-12345")
+				.email("big@bird.local")
+				.protection(HandleProtection.LIMITED)
+				.nicReferences(Collections.singletonList(CountryCode.DE))
+				.replyTo("big@bird.local")
+				.build();
+
+		HandleResource resource = new HandleResource(client);
+		long newId = resource.createHandle(handle);
+
+		System.out.println("You created a new contact. The handle's ID is: #" + newId);
+	}
 
 }

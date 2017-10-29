@@ -49,7 +49,9 @@ dependencies {
 			'com.squareup.okhttp3:okhttp:3.9.0',
 			'org.projectlombok:lombok:1.16.18',
 			'javax.xml.bind:jaxb-api-parent:2.3.0',
-			'org.slf4j:slf4j-api:1.7.25'
+			'org.slf4j:slf4j-api:1.7.25',
+			'org.hibernate:hibernate-validator:6.0.2.Final',
+			'javax.el:javax.el-api:3.0.0'
 	)
 
 	testCompile(

@@ -33,6 +33,7 @@ import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import java.io.StringReader;
 import java.io.StringWriter;
+import java.util.UUID;
 
 public abstract class AbstractResource {
 
@@ -43,9 +44,15 @@ public abstract class AbstractResource {
 		Marshaller marshaller = context.createMarshaller();
 		marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
+		addClientTransactionId(request);
+
 		marshaller.marshal(request, result);
 
 		return result.toString();
+	}
+
+	protected void addClientTransactionId(final Request request) {
+		request.getTask().setClientTransactionId(UUID.randomUUID().toString());
 	}
 
 	protected Response unmarshal(String response) throws JAXBException {

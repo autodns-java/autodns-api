@@ -28,11 +28,12 @@ import lombok.extern.slf4j.Slf4j;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.RequestBody;
-import okhttp3.Response;
 import software.steinhauer.autodns.AutoDnsClient;
+import software.steinhauer.autodns.xml.builder.HandleCreateRequestBuilder;
 import software.steinhauer.autodns.xml.builder.HandleListRequestBuilder;
 import software.steinhauer.autodns.xml.request.model.Request;
 import software.steinhauer.autodns.xml.request.model.contact.Handle;
+import software.steinhauer.autodns.xml.response.model.Response;
 
 import javax.xml.bind.JAXBException;
 import java.io.IOException;
@@ -48,34 +49,45 @@ public class HandleResource extends AbstractResource {
 		this.client = client;
 	}
 
+	// FIXME
 	public List<Handle> getHandleList() throws IOException, JAXBException {
 		Request request = new HandleListRequestBuilder(client.getCredentials()).build();
 
 		// request email as additional attribute in result set
 		request.getTask().setKeys(Arrays.asList("email", "created", "verification", "sip", "updater"));
 
-		String requestXml = marshal(request);
-
-		// FIXME use logging, stupid
-		LOG.trace(requestXml);
-		System.err.println(requestXml);
 
 		// TODO should be handled elsewhere...
-		OkHttpClient httpClient = new OkHttpClient();
-		RequestBody requestBody = RequestBody.create(MediaType.parse("text/xml"), requestXml);
-
-		okhttp3.Request httpRequest = new okhttp3.Request.Builder()
-				.url("https://demo.autodns.com/gateway/")
-				.post(requestBody)
-				.build();
-
-		Response response = httpClient.newCall(httpRequest).execute();
-
-		String responseBody = response.body().string();
-		software.steinhauer.autodns.xml.response.model.Response autoDnsResponse = unmarshal(responseBody);
+		Response autoDnsResponse = executeRequest(request);
 
 		return autoDnsResponse.getResult().get(0).getDataList().get(0).getHandles();
 	}
 
+	public long createHandle(Handle newHandle) throws IOException, JAXBException {
+		Request request = new HandleCreateRequestBuilder(client.getCredentials())
+				.setHandle(newHandle)
+				.build();
+
+		return executeRequest(request).getResult().get(0).getStatus().getObject().getValueAsLong();
+	}
+
+	private Response executeRequest(Request request) throws IOException, JAXBException {
+		String requestXml = marshal(request);
+		LOG.trace(requestXml);
+
+		OkHttpClient httpClient = new OkHttpClient();
+		RequestBody requestBody = RequestBody.create(MediaType.parse("text/xml"), requestXml);
+
+		okhttp3.Request httpRequest = new okhttp3.Request.Builder()
+				// FIXME must come from properties!
+				.url("https://demo.autodns.com/gateway/")
+				.post(requestBody)
+				.build();
+
+		okhttp3.Response response = httpClient.newCall(httpRequest).execute();
+
+		String responseBody = response.body().string();
+		return unmarshal(responseBody);
+	}
 
 }

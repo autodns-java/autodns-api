@@ -22,33 +22,15 @@
  * SOFTWARE.
  */
 
-package software.steinhauer.autodns.xml.response.model;
+package software.steinhauer.util;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+public class Assert {
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import java.util.List;
 
-@Builder
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@XmlRootElement(name = "response")
-@XmlAccessorType(XmlAccessType.FIELD)
-public class Response {
-
-	private List<Result> result;
-
-	@XmlElement(name = "ctid")
-	private String clientTransactionId;
-
-	@XmlElement(name = "stid")
-	private String serverTransactionId;
+	public static void notNull(Object obj, String errorMsg) {
+		if (obj == null) {
+			throw new IllegalArgumentException(errorMsg);
+		}
+	}
 
 }
