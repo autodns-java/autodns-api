@@ -24,6 +24,15 @@
 
 package software.steinhauer.autodns.xml.request.model;
 
+/**
+ * List of (hopefully) valid NIC references
+ * <p>
+ * InternetX provides no real document on what valid NIC references are.
+ * So this is based on an extract from the list of options in the AutoDNS UI.
+ * <p>
+ * The <pre>@SuppressWarnings(all)</pre> is sadly needed to shut up the spell
+ * checker.
+ */
 @SuppressWarnings("all")
 public enum NicReferences {
 	AC("ac"),
