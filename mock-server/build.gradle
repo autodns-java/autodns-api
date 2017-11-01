@@ -1,0 +1,47 @@
+buildscript {
+	ext {
+		springBootVersion = '2.0.0.M5'
+		springVersionStable = "1.5.8.RELEASE"
+	}
+	repositories {
+		jcenter()
+		maven { url 'http://repo.spring.io/snapshot' }
+		maven { url 'http://repo.spring.io/milestone' }
+	}
+	dependencies {
+		classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+	}
+}
+
+
+apply plugin: 'application'
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+sourceCompatibility = 1.8
+version '0.0.1-SNAPSHOT'
+mainClassName = 'software.steinhauer.autodns.mock_server.AutoDnsMockServer'
+
+repositories {
+	mavenCentral()
+	maven { url 'http://repo.spring.io/snapshot' }
+	maven { url 'http://repo.spring.io/milestone' }
+
+}
+
+dependencies {
+
+	compile(":library")
+
+	compile(
+			"org.springframework.boot:spring-boot-starter-web:${springBootVersion}",
+			"com.h2database:h2:1.4.+",
+			"org.projectlombok:lombok:1.16.18"
+
+	)
+
+	testCompile(
+			'junit:junit:4.12'
+	)
+}

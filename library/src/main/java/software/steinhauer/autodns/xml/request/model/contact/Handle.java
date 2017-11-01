@@ -139,4 +139,36 @@ public class Handle {
 	private HandleVerification verification;
 
 	private Owner updater;
+
+	@Override
+	public String toString() {
+		return "{\"Handle\":{"
+				+ "                        \"id\":\"" + id + "\""
+				+ ",                         \"alias\":\"" + alias + "\""
+				+ ",                         \"type\":\"" + type + "\""
+				+ ",                         \"firstName\":\"" + firstName + "\""
+				+ ",                         \"lastName\":\"" + lastName + "\""
+				+ ",                         \"title\":\"" + title + "\""
+				+ ",                         \"organisation\":\"" + organisation + "\""
+				+ ",                         \"addresses\":" + addresses
+				+ ",                         \"postcode\":\"" + postcode + "\""
+				+ ",                         \"city\":\"" + city + "\""
+				+ ",                         \"state\":\"" + state + "\""
+				+ ",                         \"country\":\"" + country + "\""
+				+ ",                         \"phone\":\"" + phone + "\""
+				+ ",                         \"fax\":\"" + fax + "\""
+				+ ",                         \"email\":\"" + email + "\""
+				+ ",                         \"sip\":\"" + sip + "\""
+				+ ",                         \"protection\":\"" + protection + "\""
+				+ ",                         \"nicReferences\":" + nicReferences
+				+ ",                         \"remarks\":\"" + remarks + "\""
+				+ ",                         \"replyTo\":\"" + replyTo + "\""
+				+ ",                         \"forceHandleCreate\":\"" + forceHandleCreate + "\""
+				+ ",                         \"comment\":\"" + comment + "\""
+				+ ",                         \"owner\":" + owner
+				+ ",                         \"extension\":" + extension
+				+ ",                         \"verification\":\"" + verification + "\""
+				+ ",                         \"updater\":" + updater
+				+ "}}";
+	}
 }

@@ -43,3 +43,5 @@ rootProject.name = 'autodns-api'
 
 include 'library'
 include 'examples'
+include 'mock-server'
+

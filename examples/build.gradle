@@ -38,6 +38,8 @@ dependencies {
 	compile project(':library')
 
 	compile (
-			'ch.qos.logback:logback-classic:1.2.3'
+			'ch.qos.logback:logback-classic:1.2.3',
+			'org.json:json:20171018'
+
 	)
 }
