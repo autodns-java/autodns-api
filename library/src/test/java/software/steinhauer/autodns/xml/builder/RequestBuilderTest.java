@@ -53,7 +53,7 @@ public class RequestBuilderTest {
 //				.forPerson()
 //				.withName(firstName, lastName)
 //				.worksFor(organisation)
-//				.livesAt(streets, postcode, country)
+//				.livesAt(addresses, postcode, country)
 //				.withPhoneNumber(phoneNumber)
 //				.withFaxNumber(faxNumber)
 //				.withEmailAddress(email)

@@ -26,6 +26,7 @@ package software.steinhauer.autodns.xml.builder;
 
 import com.neovisionaries.i18n.CountryCode;
 import org.junit.Test;
+import software.steinhauer.autodns.xml.request.model.NicReference;
 import software.steinhauer.autodns.xml.request.model.Owner;
 import software.steinhauer.autodns.xml.request.model.contact.Handle;
 import software.steinhauer.autodns.xml.request.model.contact.HandleForceCreate;
@@ -53,7 +54,7 @@ public class HandleBuilderTest {
 	private final String phone = "+44 1234 567890";
 	private final String fax = "+44 9876 543210";
 	private final String email = "foo@bar.local";
-	private final List<CountryCode> nicReference = Collections.singletonList(CountryCode.DE);
+	private final List<NicReference> nicReference = Collections.singletonList(NicReference.DE);
 	private final String remarks = "Test Remark";
 	private final String comment = "Test comment";
 	private final Owner owner = new Owner();

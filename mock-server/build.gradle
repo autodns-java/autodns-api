@@ -1,12 +1,9 @@
 buildscript {
 	ext {
-		springBootVersion = '2.0.0.M5'
-		springVersionStable = "1.5.8.RELEASE"
+		springBootVersion = '1.5.8.RELEASE'
 	}
 	repositories {
 		jcenter()
-		maven { url 'http://repo.spring.io/snapshot' }
-		maven { url 'http://repo.spring.io/milestone' }
 	}
 	dependencies {
 		classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
@@ -36,8 +33,10 @@ dependencies {
 	compile(
 			project (":library"),
 			"org.springframework.boot:spring-boot-starter-web:${springBootVersion}",
+			"org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}",
 			"com.h2database:h2:1.4.+",
-			"org.projectlombok:lombok:1.16.18"
+			"org.projectlombok:lombok:1.16.18",
+			"javax.inject:javax.inject:1"
 
 	)
 

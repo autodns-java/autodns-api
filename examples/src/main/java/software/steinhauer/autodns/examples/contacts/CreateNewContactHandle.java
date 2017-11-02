@@ -27,6 +27,7 @@ package software.steinhauer.autodns.examples.contacts;
 import com.neovisionaries.i18n.CountryCode;
 import software.steinhauer.autodns.AutoDnsClient;
 import software.steinhauer.autodns.resources.HandleResource;
+import software.steinhauer.autodns.xml.request.model.NicReference;
 import software.steinhauer.autodns.xml.request.model.contact.Handle;
 import software.steinhauer.autodns.xml.request.model.contact.HandleProtection;
 import software.steinhauer.autodns.xml.request.model.contact.HandleType;
@@ -51,7 +52,7 @@ public class CreateNewContactHandle {
 				.fax("+1-12345-12345")
 				.email("big@bird.local")
 				.protection(HandleProtection.LIMITED)
-				.nicReferences(Collections.singletonList(CountryCode.DE))
+				.nicReferences(Collections.singletonList(NicReference.DE))
 				.replyTo("big@bird.local")
 				.build();
 

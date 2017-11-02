@@ -22,27 +22,30 @@
  * SOFTWARE.
  */
 
-package software.steinhauer.autodns.xml.response.model;
+package software.steinhauer.autodns.xml.adapter;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
+import software.steinhauer.autodns.xml.request.model.NicReference;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import java.util.List;
+import javax.xml.bind.annotation.adapters.XmlAdapter;
+import java.util.Arrays;
 
-@Builder
-@lombok.Data
-@NoArgsConstructor
-@AllArgsConstructor
-@XmlAccessorType(XmlAccessType.FIELD)
-public class Result {
+public class NicReferenceAdapter extends XmlAdapter<String, NicReference> {
 
-	@XmlElement(name = "data")
-	private List<Data> dataList;
-	private Status status;
-	private List<SystemMessage> systemMessages;
+	@Override
+	public NicReference unmarshal(String value) {
+		return Arrays.stream(NicReference.values())
+				.filter(ref -> ref.getValue().equalsIgnoreCase(value))
+				.findFirst()
+				.orElse(null);
 
+	}
+
+	@Override
+	public String marshal(NicReference nicRef) {
+		if (nicRef == null) {
+			return null;
+		}
+
+		return nicRef.getValue();
+	}
 }

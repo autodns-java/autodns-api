@@ -1,6 +1,7 @@
 package software.steinhauer.autodns.mock_server.endpoints;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.ApplicationContext;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
@@ -13,10 +14,14 @@ import software.steinhauer.autodns.mock_server.processing.RequestProcessorFactor
 import software.steinhauer.autodns.xml.request.model.Request;
 import software.steinhauer.autodns.xml.response.model.Response;
 
+import javax.inject.Inject;
+
 @Slf4j
 @Controller
 public class GatewayController {
 
+	@Inject
+	private ApplicationContext applicationContext;
 
 	@ResponseStatus(HttpStatus.OK)
 	@PostMapping(name = "/gateway/", produces = "application/xml")
@@ -24,7 +29,7 @@ public class GatewayController {
 	public Response gatewayEndpoint(@RequestBody Request request) {
 		authenticate(request);
 
-		RequestProcessor processor = RequestProcessorFactory.getProcessor(request);
+		RequestProcessor processor = RequestProcessorFactory.getProcessor(request, applicationContext);
 
 		return processor.process();
 	}

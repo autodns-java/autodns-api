@@ -38,4 +38,11 @@ public enum StatusType {
 		this.codePrefix = codePrefix;
 	}
 
+	public String getValue() {
+		return value;
+	}
+
+	public String getCodePrefix() {
+		return codePrefix;
+	}
 }

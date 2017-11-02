@@ -24,32 +24,27 @@
 
 package software.steinhauer.autodns.xml.response.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
 import software.steinhauer.autodns.xml.request.model.contact.Handle;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import java.util.List;
 
+@Builder
+@lombok.Data
+@NoArgsConstructor
+@AllArgsConstructor
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Data {
 
 	// TODO needs to be more generic
+	@XmlElement(name = "handle")
 	private List<Handle> handles;
+	@XmlElement(name = "summary")
 	private int count;
 
-	@XmlElement(name = "handle")
-	public List<Handle> getHandles() {
-		return handles;
-	}
-
-	public void setHandles(List<Handle> handles) {
-		this.handles = handles;
-	}
-
-	@XmlElement(name = "summary")
-	public int getCount() {
-		return count;
-	}
-
-	public void setCount(int count) {
-		this.count = count;
-	}
 }

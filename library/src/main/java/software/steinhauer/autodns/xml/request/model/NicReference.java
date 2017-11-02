@@ -34,7 +34,7 @@ package software.steinhauer.autodns.xml.request.model;
  * checker.
  */
 @SuppressWarnings("all")
-public enum NicReferences {
+public enum NicReference {
 	AC("ac"),
 	ACADEMY("academy"),
 	ACCOUNTANT("accountant"),
@@ -139,6 +139,7 @@ public enum NicReferences {
 	CLICK("click"),
 	CLINIC("clinic"),
 	CLOTHING("clothing"),
+	CLOUD("cloud"),
 	CLUB("club"),
 	CM("cm"),
 	CN("cn"),
@@ -147,6 +148,7 @@ public enum NicReferences {
 	CODES("codes"),
 	COFFEE("coffee"),
 	COLOGNE("cologne"),
+	COM("com"),
 	COMMUNITY("community"),
 	COMPANY("company"),
 	COMPUTER("computer"),
@@ -171,6 +173,7 @@ public enum NicReferences {
 	DANCE("dance"),
 	DATE("date"),
 	DATING("dating"),
+	DE("de"),
 	DEALS("deals"),
 	DEGREE("degree"),
 	DELIVERY("delivery"),
@@ -190,6 +193,7 @@ public enum NicReferences {
 	DO("do"),
 	DOCTOR("doctor"),
 	DOG("dog"),
+	DOMAINS("domains"),
 	DOWNLOAD("download"),
 	DURBAN("durban"),
 	EC("ec"),
@@ -204,6 +208,7 @@ public enum NicReferences {
 	EQUIPMENT("equipment"),
 	ES("es"),
 	ESTATE("estate"),
+	EU("eu"),
 	EVENTS("events"),
 	EXCHANGE("exchange"),
 	EXPERT("expert"),
@@ -294,6 +299,7 @@ public enum NicReferences {
 	ID("id"),
 	IE("ie"),
 	IL("il"),
+	INFO("info"),
 	IM("im"),
 	IMMO("immo"),
 	IMMOBILIEN("immobilien"),
@@ -390,6 +396,7 @@ public enum NicReferences {
 	NA("na"),
 	NAME("name"),
 	NAVY("navy"),
+	NET("net"),
 	NETWORK("network"),
 	NEWS("news"),
 	NF("nf"),
@@ -405,6 +412,7 @@ public enum NicReferences {
 	OM("om"),
 	ONE("one"),
 	ONLINE("online"),
+	ORG("org"),
 	PA("pa"),
 	PARIS("paris"),
 	PARTNERS("partners"),
@@ -413,6 +421,7 @@ public enum NicReferences {
 	PE("pe"),
 	PH("ph"),
 	PHOTOGRAPHY("photography"),
+	PHOTO("photo"),
 	PHOTOS("photos"),
 	PICS("pics"),
 	PICTURES("pictures"),
@@ -491,6 +500,7 @@ public enum NicReferences {
 	SO("so"),
 	SOCCER("soccer"),
 	SOCIAL("social"),
+	SOFTWARE("software"),
 	SOLAR("solar"),
 	SOLUTIONS("solutions"),
 	SPACE("space"),
@@ -517,6 +527,7 @@ public enum NicReferences {
 	TC("tc"),
 	TEAM("team"),
 	TECH("tech"),
+	TECHNOLOGY("technology"),
 	TEL("tel"),
 	TENNIS("tennis"),
 	TF("tf"),
@@ -575,6 +586,7 @@ public enum NicReferences {
 	WATCH("watch"),
 	WEBCAM("webcam"),
 	WEBSITE("website"),
+	WEDDING("wedding"),
 	WF("wf"),
 	WIEN("wien"),
 	WIKI("wiki"),
@@ -595,7 +607,7 @@ public enum NicReferences {
 
 	private final String value;
 
-	NicReferences(String value) {
+	NicReference(String value) {
 		this.value = value;
 	}
 

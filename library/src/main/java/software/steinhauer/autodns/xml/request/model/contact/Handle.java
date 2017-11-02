@@ -33,6 +33,8 @@ import lombok.NoArgsConstructor;
 import software.steinhauer.autodns.xml.adapter.CountryCodeAdapter;
 import software.steinhauer.autodns.xml.adapter.HandleProtectionAdapter;
 import software.steinhauer.autodns.xml.adapter.HandleVerificationAdapter;
+import software.steinhauer.autodns.xml.adapter.NicReferenceAdapter;
+import software.steinhauer.autodns.xml.request.model.NicReference;
 import software.steinhauer.autodns.xml.request.model.Owner;
 
 import javax.validation.constraints.NotEmpty;
@@ -115,9 +117,9 @@ public class Handle {
 	@XmlJavaTypeAdapter(HandleProtectionAdapter.class)
 	private HandleProtection protection;
 
-	@XmlJavaTypeAdapter(CountryCodeAdapter.class)
+	@XmlJavaTypeAdapter(NicReferenceAdapter.class)
 	@XmlElement(name = "nic_ref")
-	private List<CountryCode> nicReferences;
+	private List<NicReference> nicReferences;
 
 	private String remarks;
 
